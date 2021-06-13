@@ -3,12 +3,12 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const Quiz=()=>{
     return (
-       <View>
-            <View>
+       <View style={styles.container}>
+            <View style={styles.top}>
                 <Text>Question 1</Text>
             </View>
 
-            <View>
+            <View  style={styles.options}>
                 <TouchableOpacity>
                     <Text>Option 1</Text>
                 </TouchableOpacity>
@@ -23,7 +23,7 @@ const Quiz=()=>{
                 </TouchableOpacity>
             </View>
 
-            <View>
+            <View style={styles.bottom}>
                 <TouchableOpacity>
                     <Text>SKIP</Text>
                 </TouchableOpacity>
@@ -38,4 +38,23 @@ const Quiz=()=>{
 
 export default Quiz;
 
-const styles= StyleSheet.create({});
+const styles= StyleSheet.create({
+    container:{
+        padding: 12,
+        height:'100%,'
+    },
+    top:{
+        marginVertical:16,
+    },
+    options:{
+        marginVertical:16,
+        flex:1,
+    },
+    bottom:{
+        marginBottom:12,
+        paddingVertical:16,
+        justifyContent:'space-between',
+        flexDirection:'row',
+    }
+
+});
