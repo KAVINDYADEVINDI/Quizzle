@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const Welcome=()=>{
     return (
         <view>
-            <Text>hello</Text>
+            <Text>hello result</Text>
         </view>
         
     );
