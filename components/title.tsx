@@ -17,6 +17,6 @@ const styles= StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         fontSize:40,
-        fontWeight:"200"
+        fontWeight:"400"
     }
 });
