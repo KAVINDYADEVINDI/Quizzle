@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const Title=()=>{
     return (
         <View style={styles.text}>
-            <Text style={styles.text}>Quizzora</Text>
+            <Text style={styles.textStyle}>Quizzora</Text>
         </View>
         
     );
@@ -16,7 +16,9 @@ const styles= StyleSheet.create({
     text:{
         justifyContent:'center',
         alignItems:'center',
+    },
+    textStyle:{
         fontSize:40,
-        fontWeight:"400"
+        fontWeight:"600"
     }
 });
