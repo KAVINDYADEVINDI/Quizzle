@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const Title=()=>{
     return (
-        <View>
-            <Text>Quizzora</Text>
+        <View style={styles.text}>
+            <Text style={styles.text}>Quizzora</Text>
         </View>
         
     );
@@ -12,4 +12,11 @@ const Title=()=>{
 
 export default Title;
 
-const styles= StyleSheet.create({});
+const styles= StyleSheet.create({
+    text:{
+        justifyContent:'center',
+        alignItems:'center',
+        fontSize:40,
+        fontWeight:"200"
+    }
+});
