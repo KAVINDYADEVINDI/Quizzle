@@ -3,9 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const Title=()=>{
     return (
-        <view>
+        <View>
             <Text>Quizzora</Text>
-        </view>
+        </View>
         
     );
 };

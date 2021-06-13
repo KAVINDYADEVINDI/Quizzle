@@ -3,9 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const Result=()=>{
     return (
-        <view>
+        <View>
             <Text>hello result</Text>
-        </view>
+        </View>
         
     );
 };
