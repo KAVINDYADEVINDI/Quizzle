@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Welcome=()=>{
+const Result=()=>{
     return (
         <view>
             <Text>hello result</Text>
@@ -10,6 +10,6 @@ const Welcome=()=>{
     );
 };
 
-export default Welcome;
+export default Result;
 
 const styles= StyleSheet.create({});

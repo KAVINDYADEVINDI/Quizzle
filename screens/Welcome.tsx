@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Title from '../components/title';
 
 const Welcome=()=>{
     return (
         <view>
-            <Text>hello</Text>
+            <Title/>
         </view>
         
     );

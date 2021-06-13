@@ -1,15 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Welcome=()=>{
+const Title=()=>{
     return (
         <view>
-            <Text>hello result</Text>
+            <Text>Quizzora</Text>
         </view>
         
     );
 };
 
-export default Welcome;
+export default Title;
 
 const styles= StyleSheet.create({});

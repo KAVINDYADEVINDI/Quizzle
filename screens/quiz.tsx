@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Welcome=()=>{
+const Quiz=()=>{
     return (
         <view>
             <Text>hello Quiz</Text>
@@ -10,6 +10,6 @@ const Welcome=()=>{
     );
 };
 
-export default Welcome;
+export default Quiz;
 
 const styles= StyleSheet.create({});
