@@ -82,10 +82,10 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     padding: 8,
     shadowColor:'#1c632f',
-    shadowOpacity:0.8,
-    elevation: 6,
+    shadowOpacity:1,
+    elevation: 10,
     shadowRadius: 15 ,
-    shadowOffset : { width: 56, height: 13},
+    shadowOffset : { width: 1, height: 23},
     
   },
   BtnText: {
