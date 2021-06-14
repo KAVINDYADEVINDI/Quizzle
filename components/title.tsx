@@ -14,11 +14,12 @@ export default Title;
 
 const styles= StyleSheet.create({
     text:{
+        paddingTop:60,
         justifyContent:'center',
         alignItems:'center',
     },
     textStyle:{
         fontSize:40,
-        fontWeight:"600"
+        fontWeight:'600'
     }
 });

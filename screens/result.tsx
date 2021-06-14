@@ -1,15 +1,29 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, ImageBackground } from "react-native";
 
-const Result=()=>{
-    return (
+const Result = () => {
+  return (
+    <View style={{ width: "100%", height: "100%" }}>
+      <ImageBackground
+        source={require("../assets/images/result.jpg")}
+        style={styles.backgroundImage}
+      >
         <View>
-            <Text>hello result</Text>
+          <Text>hello result</Text>
         </View>
         
-    );
+      </ImageBackground>
+    </View>
+  );
 };
 
 export default Result;
 
-const styles= StyleSheet.create({});
+const styles = StyleSheet.create({
+  backgroundImage: {
+    width: "100%",
+    height: "100%",
+    flex: 1,
+    resizeMode: "cover", // or 'stretch'
+  },
+});
