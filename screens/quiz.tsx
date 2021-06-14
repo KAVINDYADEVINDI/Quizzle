@@ -1,12 +1,13 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View,Image } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 
-const Quiz=()=>{
-    return (
+const Quiz = () => {
+  return (
+    <View style={{ width: "100%", height: "100%" }}>
       <View style={styles.container}>
         <View style={styles.bannerContainer}>
           <Image
-            source={require("../assets/images/wel.jpg")}
+            source={require("../assets/images/wel.png")}
             style={styles.banner}
             resizeMode="contain"
           />
@@ -40,7 +41,8 @@ const Quiz=()=>{
           </TouchableOpacity>
         </View>
       </View>
-    );
+    </View>
+  );
 };
 
 export default Quiz;
@@ -48,7 +50,6 @@ export default Quiz;
 const styles = StyleSheet.create({
   container: {
     padding: 12,
-    height: "100%,",
   },
   banner: {
     height: 300,
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
   },
   options: {
     marginVertical: 16,
-    flex: 1,
+   
   },
   bottom: {
     marginBottom: 12,

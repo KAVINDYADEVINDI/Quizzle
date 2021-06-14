@@ -10,8 +10,8 @@ export default function App() {
     
       <View >
         {/* <Welcome/> */}
-        {/* <Quiz/> */}
-        <Result/>
+        <Quiz/>
+        {/* <Result/> */}
         {/* <StatusBar style="auto" /> */}
       </View>
    
