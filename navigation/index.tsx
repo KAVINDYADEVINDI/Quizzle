@@ -9,13 +9,23 @@ const Stack = createStackNavigator();
 
 function MyStack() {
   return (
-    
-      <Stack.Navigator initialRouteName="Welcome">
-        <Stack.Screen name="Welcome" component={Welcome} options={{headerShown:false}} />
-        <Stack.Screen name="Quiz" component={Quiz} />
-        <Stack.Screen name="Result" component={Result} />
-      </Stack.Navigator>
-    
+    <Stack.Navigator initialRouteName="Welcome">
+      <Stack.Screen
+        name="Welcome"
+        component={Welcome}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Quiz"
+        component={Quiz}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Result"
+        component={Result}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
   );
 }
 
