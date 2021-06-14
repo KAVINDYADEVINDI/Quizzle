@@ -1,6 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity,Image ,ImageBackground} from 'react-native';
+import { StyleSheet, Text, View,Animated, TouchableOpacity,Image ,ImageBackground} from 'react-native';
+import { LinearGradient } from "react-native-linear-gradient";
 import Title from '../components/title';
+
+
 
 const Welcome = ({navigation}) => {
     return (
@@ -22,17 +25,18 @@ const Welcome = ({navigation}) => {
                 resizeMode="contain"
               />
             </View>
+           
             <TouchableOpacity
               style={styles.Btn}
               onPress={() => navigation.navigate("Quiz")}
             >
-              <Text style={styles.BtnText}>Get Start</Text>
+            <LinearGradient colors={['#43D4FF', '#38ABFD', '#2974FA']} style={styles.gradiant}>
+              <Text style={styles.BtnText}>Get Start >></Text>
+               </LinearGradient>
             </TouchableOpacity>
+            
 
-            <TouchableOpacity
-              style={styles.HowPlayBtn}
-              onPress={() => navigation.navigate("Quiz")}
-            >
+            <TouchableOpacity style={styles.HowPlayBtn}>
               <Text style={styles.HowPlayBtnText}>How to Play?</Text>
             </TouchableOpacity>
           </View>
@@ -61,12 +65,34 @@ const styles = StyleSheet.create({
   Btn: {
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
-    padding: 10,
-    backgroundColor: "#099910",
-    borderRadius: 16,
+    marginLeft: 80,
+    marginTop:300,
+    width: "60%",
+    padding: 15,
+    backgroundColor: "#075e0b",
+    borderRadius: 56,
   },
-  BtnText: {},
-  HowPlayBtn: {},
+  gradient:{
+    flex:1,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius:5,
+  },
+  BtnText: {
+      fontSize:24,
+      fontWeight:'300',
+      color:'#fff',
+    backgroundColor: 'transparent',
+  },
+  HowPlayBtn: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 80,
+    marginTop:200,
+    width: "60%",
+    padding: 15,
+    backgroundColor: "#fff",
+    borderRadius: 56,
+  },
   HowPlayBtnText: {},
 });

@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: "bold",
     textShadowOffset: { width: 2, height: 3 },
-    textShadowRadius: 10,
+    textShadowRadius: 20,
     textShadowColor: "#e0a81b",
   },
 });
