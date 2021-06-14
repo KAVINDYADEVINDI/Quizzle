@@ -28,8 +28,12 @@ const Welcome = ({navigation}) => {
             >
               <Text style={styles.BtnText}>Get Start</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate("Quiz")}>
-              <Text>How to Play?</Text>
+
+            <TouchableOpacity
+              style={styles.HowPlayBtn}
+              onPress={() => navigation.navigate("Quiz")}
+            >
+              <Text style={styles.HowPlayBtnText}>How to Play?</Text>
             </TouchableOpacity>
           </View>
         </ImageBackground>
@@ -55,10 +59,14 @@ const styles = StyleSheet.create({
     height: "100%", // or 'stretch'
   },
   Btn: {
-    width: "80%",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    padding: 10,
+    backgroundColor: "#099910",
+    borderRadius: 16,
   },
-  BtnText: {
-    width: "80%",
-  },
+  BtnText: {},
   HowPlayBtn: {},
+  HowPlayBtnText: {},
 });
