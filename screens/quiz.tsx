@@ -6,9 +6,7 @@ const Quiz=()=>{
       <View style={styles.container}>
         <View style={styles.bannerContainer}>
           <Image
-            source={{
-              uri: "https://cdn3d.iconscout.com/3d/premium/thumb/question-mark-2891357-2409768@0.png",
-            }}
+            source={require("../assets/images/wel.jpg")}
             style={styles.banner}
             resizeMode="contain"
           />
