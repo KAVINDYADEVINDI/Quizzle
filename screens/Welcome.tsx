@@ -72,6 +72,8 @@ const styles = StyleSheet.create({
     marginLeft: 80,
     marginTop: 300,
     width: "60%",
+    
+
   },
   gradient: {
     justifyContent: "center",
@@ -79,6 +81,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     borderRadius: 25,
     padding: 8,
+    shadowColor:'#1c632f',
+    shadowOpacity:0.8,
+    elevation: 6,
+    shadowRadius: 15 ,
+    shadowOffset : { width: 56, height: 13},
+    
   },
   BtnText: {
     fontSize: 24,

@@ -52,6 +52,7 @@ export default Quiz;
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop:40,
     padding: 12,
   },
   banner: {
