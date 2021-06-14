@@ -1,3 +1,4 @@
+import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
@@ -8,16 +9,10 @@ import Result from "./screens/result";
 import Welcome from "./screens/Welcome";
 
 export default function App() {
-  return (
-    <View>
+  return ( 
       <NavigationContainer>
-        <MyStack/>
+        <MyStack />      
       </NavigationContainer>
-      <Welcome />
-      {/* <Quiz/> */}
-      {/* <Result/> */}
-      {/* <StatusBar style="auto" /> */}
-    </View>
   );
 }
 
