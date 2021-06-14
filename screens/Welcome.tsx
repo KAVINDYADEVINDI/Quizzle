@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View,Animated, TouchableOpacity,Image ,ImageBackground} from 'react-native';
-import { LinearGradient } from "react-native-linear-gradient";
+import  {LinearGradient}  from "expo-linear-gradient";
 import Title from '../components/title';
 
 
@@ -25,16 +25,20 @@ const Welcome = ({navigation}) => {
                 resizeMode="contain"
               />
             </View>
-           
+
             <TouchableOpacity
               style={styles.Btn}
               onPress={() => navigation.navigate("Quiz")}
             >
-            <LinearGradient colors={['#43D4FF', '#38ABFD', '#2974FA']} style={styles.gradiant}>
-              <Text style={styles.BtnText}>Get Start >></Text>
-               </LinearGradient>
+              <LinearGradient
+                colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
+                start={{ x: 1, y: 0 }}
+                end={{ x: 0, y: 0 }}
+                style={styles.gradient}
+              >
+                <Text style={styles.BtnText}>Get Start >> </Text>
+              </LinearGradient>
             </TouchableOpacity>
-            
 
             <TouchableOpacity style={styles.HowPlayBtn}>
               <Text style={styles.HowPlayBtnText}>How to Play?</Text>
@@ -63,36 +67,37 @@ const styles = StyleSheet.create({
     height: "100%", // or 'stretch'
   },
   Btn: {
-    justifyContent: "center",
-    alignItems: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
     marginLeft: 80,
-    marginTop:300,
+    marginTop: 300,
     width: "60%",
-    padding: 15,
-    backgroundColor: "#075e0b",
-    borderRadius: 56,
   },
-  gradient:{
-    flex:1,
+  gradient: {
     justifyContent: "center",
     alignItems: "center",
-    borderRadius:5,
+    textAlign: "center",
+    borderRadius: 25,
+    padding: 8,
   },
   BtnText: {
-      fontSize:24,
-      fontWeight:'300',
-      color:'#fff',
+    fontSize: 24,
+    fontWeight: "300",
+    color: "#fff",
     backgroundColor: 'transparent',
   },
   HowPlayBtn: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginLeft: 80,
-    marginTop:200,
-    width: "60%",
-    padding: 15,
-    backgroundColor: "#fff",
-    borderRadius: 56,
+
+    marginLeft: 140,
+    
   },
-  HowPlayBtnText: {},
+  HowPlayBtnText: {
+    fontSize: 20,
+    fontWeight: "300",
+    color: "#191c1a",
+    backgroundColor: 'transparent',
+    textShadowOffset: { width: 2, height: 3 },
+    textShadowRadius: 20,
+    textShadowColor: "#86d99c",
+  },
 });
