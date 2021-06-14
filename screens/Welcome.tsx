@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
     },
     backgroundImage: {
         flex:1,  
-        // resizeMode: 'cover',r
+        resizeMode: 'cover',
         width:"100%",
-         height:"100%" // or 'stretch'
+        height:"100%" // or 'stretch'
     }
   
     

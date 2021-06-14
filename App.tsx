@@ -9,8 +9,8 @@ export default function App() {
   return (
     
       <View >
-        {/* <Welcome/> */}
-        <Quiz/>
+        <Welcome/>
+        {/* <Quiz/> */}
         {/* <Result/> */}
         {/* <StatusBar style="auto" /> */}
       </View>
