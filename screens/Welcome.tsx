@@ -41,7 +41,7 @@ const Welcome = ({navigation}) => {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.HowPlayBtn}>
-              <Text style={styles.HowPlayBtnText}>How to Play?</Text>
+              <Text style={styles.HowPlayBtnText}>Improve your app building skills and upgrade your personal growth</Text>
             </TouchableOpacity>
           </View>
         </ImageBackground>
