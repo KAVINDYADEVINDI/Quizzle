@@ -11,7 +11,6 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const Quiz = ({ navigation }) => {
   const [Question, setQuestion] = useState([]);
-
   const [isLoading, setLoading] = useState(true);
 
   const getQuiz = async () => {
@@ -30,7 +29,16 @@ const Quiz = ({ navigation }) => {
   return (
     <View>
       {isLoading ? (
-        <Text>Loading...</Text>
+        <View style={{ width: "100%", height: "100%" }}>
+          <LinearGradient
+            colors={["rgba(101, 48, 186,1)", "rgba(160, 57, 219,1)"]}
+            start={{ x: 1, y: 0 }}
+            end={{ x: 0, y: 0 }}
+            style={styles.loading}
+          >
+            <Text style={styles.loadingText}>Loading...</Text>
+          </LinearGradient>
+        </View>
       ) : (
         <View style={{ width: "100%", height: "100%" }}>
           <LinearGradient
@@ -52,7 +60,9 @@ const Quiz = ({ navigation }) => {
               </View>
 
               <View style={styles.question}>
-                <Text style={styles.questionText}>{Question[0].question}</Text>
+                <Text style={styles.questionText}>
+                  Q.{Question[0].question}
+                </Text>
               </View>
               <View style={styles.options}>
                 <TouchableOpacity style={styles.option}>
@@ -118,6 +128,16 @@ const styles = StyleSheet.create({
     padding: 12,
     width: "100%",
     height: "100%",
+  },
+  loading: {
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loadingText: {
+    fontSize: 18,
+    color: "#e4e1f0",
   },
   banner: {
     height: 300,
