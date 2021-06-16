@@ -1,26 +1,151 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
-import  {LinearGradient}  from "expo-linear-gradient";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  FlatList,
+} from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
+const Quiz = ({ navigation }) => {
+  const [questions, setQuestions] = useState([]);
 
-
-const Quiz = ({navigation}) => {
-  const [questions,setQuestion]=useState();
-  const getQuiz=async()=>{
-    const url='https://opentdb.com/api.php?amount=10';
-    const res=await fetch(url);
-    const data=await res.json();
+  const getQuiz = async () => {
+    const url = "https://opentdb.com/api.php?amount=10";
+    const res = await fetch(url);
+    const data = await res.json();
     // console.log(res);
-    console.log(data.results[0].question);
+    //console.log(data.results[0]);
 
+    //create array for question
+    const newQuestion = [
+      {
+        questionText: data.results[0].question,
+        answerOptions: [
+          { answerText: data.results[0].correct_answer, isCorrect: true },
+          {
+            answerText: data.results[0].incorrect_answers[0],
+            isCorrect: false,
+          },
+          {
+            answerText: data.results[0].incorrect_answers[1],
+            isCorrect: false,
+          },
+          {
+            answerText: data.results[0].incorrect_answers[2],
+            isCorrect: false,
+          },
+        ],
+      },
+      {
+        questionText: data.results[1].question,
+        answerOptions: [
+          {
+            answerText: data.results[1].incorrect_answers[1],
+            isCorrect: false,
+          },
+          {
+            answerText: data.results[1].incorrect_answers[0],
+            isCorrect: false,
+          },
+          {
+            answerText: data.results[1].correct_answer,
+            isCorrect: true,
+          },
+          {
+            answerText: data.results[1].incorrect_answers[2],
+            isCorrect: false,
+          },
+        ],
+      },
+      {
+        questionText: data.results[2].question,
+        answerOptions: [
+          {
+            answerText: data.results[2].incorrect_answers[0],
+            isCorrect: false,
+          },
+          {
+            answerText: data.results[2].correct_answer,
+            isCorrect: true,
+          },
+          {
+            answerText: data.results[2].incorrect_answers[1],
+            isCorrect: false,
+          },
+
+          {
+            answerText: data.results[2].incorrect_answers[2],
+            isCorrect: false,
+          },
+        ],
+      },
+      {
+        questionText: data.results[3].question,
+        answerOptions: [
+          {
+            answerText: data.results[3].incorrect_answers[0],
+            isCorrect: false,
+          },
+
+          {
+            answerText: data.results[3].incorrect_answers[1],
+            isCorrect: false,
+          },
+
+          {
+            answerText: data.results[3].incorrect_answers[2],
+            isCorrect: false,
+          },
+          {
+            answerText: data.results[3].correct_answer,
+            isCorrect: true,
+          },
+        ],
+      },
+      {
+        questionText: data.results[4].question,
+        answerOptions: [
+          {
+            answerText: data.results[4].incorrect_answers[0],
+            isCorrect: false,
+          },
+
+          {
+            answerText: data.results[4].incorrect_answers[1],
+            isCorrect: false,
+          },
+          {
+            answerText: data.results[4].correct_answer,
+            isCorrect: true,
+          },
+
+          {
+            answerText: data.results[4].incorrect_answers[2],
+            isCorrect: false,
+          },
+        ],
+      },
+    ];
+    setQuestions(newQuestion);
   };
-  useEffect(()=>{
-    getQuiz()
-  },[])
 
+  useEffect(() => {
+    getQuiz();
+  }, []);
+  console.log(questions[0]);
+  //  console.log(Setquestions.questionText);
 
   return (
     <View style={{ width: "100%", height: "100%" }}>
+      {/* <FlatList
+        data={questions}
+        renderItem={(item) => {
+          item.questionText
+        }}
+      /> */}
       <LinearGradient
         colors={["rgba(101, 48, 186,1)", "rgba(160, 57, 219,1)"]}
         start={{ x: 1, y: 0 }}
@@ -40,9 +165,7 @@ const Quiz = ({navigation}) => {
           </View>
 
           <View style={styles.question}>
-            <Text style={styles.questionText}>
-              Q.Where is Samsung group located?
-            </Text>
+            <Text style={styles.questionText}>{questions[0].questionText}</Text>
           </View>
           <View style={styles.options}>
             <TouchableOpacity style={styles.option}>
@@ -143,10 +266,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 26,
     paddingVertical: 26,
     justifyContent: "center",
-    
   },
   button: {
-    width:'60%',
+    width: "60%",
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
@@ -155,5 +277,8 @@ const styles = StyleSheet.create({
   buttonText: {
     paddingHorizontal: 20,
     paddingVertical: 7,
+  },
+  parent: {
+    height: "100%",
   },
 });
