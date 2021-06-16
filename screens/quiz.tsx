@@ -15,8 +15,7 @@ const Quiz = ({ navigation }) => {
   const [currentQuestion,setCurrentQuestion]=useState(0);
 
   const getQuiz = async () => {
-    const url =
-      "https://opentdb.com/api.php?amount=5&category=18&type=multiple";
+    const url ="https://opentdb.com/api.php?amount=5&category=18&type=multiple";
     const data = await fetch(url)
       .then((res) => res.json())
       .then((json) => setQuestion(json.results))
@@ -193,6 +192,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   buttonText: {
+    fontWeight:"bold",
     paddingHorizontal: 20,
     paddingVertical: 7,
   },
