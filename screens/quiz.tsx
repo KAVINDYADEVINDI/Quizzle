@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import  {LinearGradient}  from "expo-linear-gradient";
 
 
 
 const Quiz = ({navigation}) => {
+  const [questions,setQuestion]=useState();
+  const getQuiz=async()=>{
+    const url='https://opentdb.com/api.php?amount=10';
+    const res=await fetch(url);
+    console.log(res);
+  };
+  useEffect(()=>{
+    getQuiz()
+  },[])
+
+
   return (
     <View style={{ width: "100%", height: "100%" }}>
       <LinearGradient
