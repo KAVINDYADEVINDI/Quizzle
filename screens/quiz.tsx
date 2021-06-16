@@ -10,180 +10,75 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 
 const Quiz = ({ navigation }) => {
-  const [questions, setQuestions] = useState([]);
+  const [Question, setQuestion] = useState([]);
+
+  const [isLoading, setLoading] = useState(true);
 
   const getQuiz = async () => {
     const url = "https://opentdb.com/api.php?amount=10";
-    const res = await fetch(url);
-    const data = await res.json();
-    // console.log(res);
-    //console.log(data.results[0]);
-
-    //create array for question
-    const newQuestion = [
-      {
-        questionText: data.results[0].question,
-        answerOptions: [
-          { answerText: data.results[0].correct_answer, isCorrect: true },
-          {
-            answerText: data.results[0].incorrect_answers[0],
-            isCorrect: false,
-          },
-          {
-            answerText: data.results[0].incorrect_answers[1],
-            isCorrect: false,
-          },
-          {
-            answerText: data.results[0].incorrect_answers[2],
-            isCorrect: false,
-          },
-        ],
-      },
-      {
-        questionText: data.results[1].question,
-        answerOptions: [
-          {
-            answerText: data.results[1].incorrect_answers[1],
-            isCorrect: false,
-          },
-          {
-            answerText: data.results[1].incorrect_answers[0],
-            isCorrect: false,
-          },
-          {
-            answerText: data.results[1].correct_answer,
-            isCorrect: true,
-          },
-          {
-            answerText: data.results[1].incorrect_answers[2],
-            isCorrect: false,
-          },
-        ],
-      },
-      {
-        questionText: data.results[2].question,
-        answerOptions: [
-          {
-            answerText: data.results[2].incorrect_answers[0],
-            isCorrect: false,
-          },
-          {
-            answerText: data.results[2].correct_answer,
-            isCorrect: true,
-          },
-          {
-            answerText: data.results[2].incorrect_answers[1],
-            isCorrect: false,
-          },
-
-          {
-            answerText: data.results[2].incorrect_answers[2],
-            isCorrect: false,
-          },
-        ],
-      },
-      {
-        questionText: data.results[3].question,
-        answerOptions: [
-          {
-            answerText: data.results[3].incorrect_answers[0],
-            isCorrect: false,
-          },
-
-          {
-            answerText: data.results[3].incorrect_answers[1],
-            isCorrect: false,
-          },
-
-          {
-            answerText: data.results[3].incorrect_answers[2],
-            isCorrect: false,
-          },
-          {
-            answerText: data.results[3].correct_answer,
-            isCorrect: true,
-          },
-        ],
-      },
-      {
-        questionText: data.results[4].question,
-        answerOptions: [
-          {
-            answerText: data.results[4].incorrect_answers[0],
-            isCorrect: false,
-          },
-
-          {
-            answerText: data.results[4].incorrect_answers[1],
-            isCorrect: false,
-          },
-          {
-            answerText: data.results[4].correct_answer,
-            isCorrect: true,
-          },
-
-          {
-            answerText: data.results[4].incorrect_answers[2],
-            isCorrect: false,
-          },
-        ],
-      },
-    ];
-    setQuestions(newQuestion);
+    const data = await fetch(url)
+      .then((res) => res.json())
+      .then((json) => setQuestion(json.results))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
   };
-
   useEffect(() => {
     getQuiz();
   }, []);
-  console.log(questions[0]);
-  //  console.log(Setquestions.questionText);
+  //console.log(Question[0]);
 
   return (
-    <View style={{ width: "100%", height: "100%" }}>
-      {/* <FlatList
-        data={questions}
-        renderItem={(item) => {
-          item.questionText
-        }}
-      /> */}
-      <LinearGradient
-        colors={["rgba(101, 48, 186,1)", "rgba(160, 57, 219,1)"]}
-        start={{ x: 1, y: 0 }}
-        end={{ x: 0, y: 0 }}
-      >
-        <View style={styles.container}>
-          <View style={styles.bannerContainer}>
-            <Image
-              source={require("../assets/images/wel.png")}
-              style={styles.banner}
-              resizeMode="contain"
-            />
-          </View>
+    <View>
+      {isLoading ? (
+        <Text>Loading...</Text>
+      ) : (
+        <View style={{ width: "100%", height: "100%" }}>
+          <LinearGradient
+            colors={["rgba(101, 48, 186,1)", "rgba(160, 57, 219,1)"]}
+            start={{ x: 1, y: 0 }}
+            end={{ x: 0, y: 0 }}
+          >
+            <View style={styles.container}>
+              <View style={styles.bannerContainer}>
+                <Image
+                  source={require("../assets/images/wel.png")}
+                  style={styles.banner}
+                  resizeMode="contain"
+                />
+              </View>
 
-          <View style={styles.top}>
-            <Text style={styles.topText}>Question 1/5</Text>
-          </View>
+              <View style={styles.top}>
+                <Text style={styles.topText}>Question 1/5</Text>
+              </View>
 
-          <View style={styles.question}>
-            <Text style={styles.questionText}></Text>
-          </View>
-          <View style={styles.options}>
-            <TouchableOpacity style={styles.option}>
-              <Text style={styles.optionText}>Seoul</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.option}>
-              <Text style={styles.optionText}>Senegal</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.option}>
-              <Text style={styles.optionText}>Colarado</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.option}>
-              <Text style={styles.optionText}>California</Text>
-            </TouchableOpacity>
-          </View>
+              <View style={styles.question}>
+                <Text style={styles.questionText}>{Question[0].question}</Text>
+              </View>
+              <View style={styles.options}>
+                <TouchableOpacity style={styles.option}>
+                  <Text style={styles.optionText}>
+                    {Question[0].incorrect_answers}
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.option}>
+                  <Text style={styles.optionText}>
+                    {Question[0].incorrect_answers}
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.option}>
+                  <Text style={styles.optionText}>
+                    {Question[0].incorrect_answers}
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.option}>
+                  <Text style={styles.optionText}>
+                    {Question[0].correct_answer}
+                  </Text>
+                </TouchableOpacity>
+              </View>
 
-          <View style={styles.bottom}>
-            {/* <TouchableOpacity style={styles.button}>
+              <View style={styles.bottom}>
+                {/* <TouchableOpacity style={styles.button}>
               <LinearGradient
                 colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
                 start={{ x: 1, y: 0 }}
@@ -193,22 +88,24 @@ const Quiz = ({ navigation }) => {
                 <Text style={styles.buttonText}>SKIP</Text>
               </LinearGradient>
             </TouchableOpacity> */}
-            <TouchableOpacity style={styles.button}>
-              <LinearGradient
-                colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
-                start={{ x: 1, y: 0 }}
-                end={{ x: 0, y: 0 }}
-                style={styles.button}
-              >
-                <Text style={styles.buttonText}>NEXT</Text>
-              </LinearGradient>
-            </TouchableOpacity>
-            {/* <TouchableOpacity onPress={() => navigation.navigate("Result")}>
+                <TouchableOpacity style={styles.button}>
+                  <LinearGradient
+                    colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
+                    start={{ x: 1, y: 0 }}
+                    end={{ x: 0, y: 0 }}
+                    style={styles.button}
+                  >
+                    <Text style={styles.buttonText}>NEXT</Text>
+                  </LinearGradient>
+                </TouchableOpacity>
+                {/* <TouchableOpacity onPress={() => navigation.navigate("Result")}>
               <Text>END</Text>
             </TouchableOpacity> */}
-          </View>
+              </View>
+            </View>
+          </LinearGradient>
         </View>
-      </LinearGradient>
+      )}
     </View>
   );
 };
