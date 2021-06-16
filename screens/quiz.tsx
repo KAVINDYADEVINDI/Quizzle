@@ -25,7 +25,7 @@ const Quiz = ({ navigation }) => {
   useEffect(() => {
     getQuiz();
   }, []);
-  //console.log(Question[0]);
+  console.log(Question[0]);
 
   return (
     <View>
@@ -57,17 +57,17 @@ const Quiz = ({ navigation }) => {
               <View style={styles.options}>
                 <TouchableOpacity style={styles.option}>
                   <Text style={styles.optionText}>
-                    {Question[0].incorrect_answers}
+                    {Question[0].incorrect_answers[0]}
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.option}>
                   <Text style={styles.optionText}>
-                    {Question[0].incorrect_answers}
+                    {Question[0].incorrect_answers[1]}
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.option}>
                   <Text style={styles.optionText}>
-                    {Question[0].incorrect_answers}
+                    {Question[0].incorrect_answers[2]}
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.option}>
