@@ -165,7 +165,7 @@ const Quiz = ({ navigation }) => {
           </View>
 
           <View style={styles.question}>
-            <Text style={styles.questionText}>{questions[0].questionText}</Text>
+            <Text style={styles.questionText}></Text>
           </View>
           <View style={styles.options}>
             <TouchableOpacity style={styles.option}>
@@ -263,9 +263,8 @@ const styles = StyleSheet.create({
   },
   bottom: {
     marginBottom: 12,
-    paddingHorizontal: 26,
-    paddingVertical: 26,
     justifyContent: "center",
+    alignItems: "center",
   },
   button: {
     width: "60%",

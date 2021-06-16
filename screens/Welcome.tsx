@@ -43,6 +43,10 @@ const Welcome = ({navigation}) => {
             <TouchableOpacity style={styles.HowPlayBtn}>
               <Text style={styles.HowPlayBtnText}>Improve your app building skills and upgrade your personal growth</Text>
             </TouchableOpacity>
+
+            <View  style={styles.line}>
+
+            </View>
           </View>
         </ImageBackground>
       </View>
@@ -96,7 +100,7 @@ const styles = StyleSheet.create({
   },
   HowPlayBtn: {
 
-    marginLeft: 20,
+    marginHorizontal:5,
     
   },
   HowPlayBtnText: {
@@ -109,4 +113,13 @@ const styles = StyleSheet.create({
     textShadowRadius: 20,
     textShadowColor: "#86d99c",
   },
+  line:{
+    borderBottomColor: '#837887',
+    borderBottomWidth: 1,
+    marginHorizontal:90,
+    paddingVertical:10,
+    shadowColor:'#594d4c',
+    shadowOpacity:1,
+    shadowOffset: { width: 2, height: 10 },
+  }
 });
