@@ -11,7 +11,7 @@ const Quiz = ({navigation}) => {
     const res=await fetch(url);
     const data=await res.json();
     // console.log(res);
-    console.log(data);
+    console.log(data.results[0].question);
 
   };
   useEffect(()=>{
@@ -60,7 +60,7 @@ const Quiz = ({navigation}) => {
           </View>
 
           <View style={styles.bottom}>
-            <TouchableOpacity style={styles.button}>
+            {/* <TouchableOpacity style={styles.button}>
               <LinearGradient
                 colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
                 start={{ x: 1, y: 0 }}
@@ -69,7 +69,7 @@ const Quiz = ({navigation}) => {
               >
                 <Text style={styles.buttonText}>SKIP</Text>
               </LinearGradient>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <TouchableOpacity style={styles.button}>
               <LinearGradient
                 colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
@@ -140,12 +140,13 @@ const styles = StyleSheet.create({
   },
   bottom: {
     marginBottom: 12,
-    paddingHorizontal: 46,
+    paddingHorizontal: 26,
     paddingVertical: 26,
-    justifyContent: "space-between",
-    flexDirection: "row",
+    justifyContent: "center",
+    
   },
   button: {
+    width:'60%',
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",

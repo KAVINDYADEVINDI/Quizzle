@@ -96,11 +96,12 @@ const styles = StyleSheet.create({
   },
   HowPlayBtn: {
 
-    marginLeft: 140,
+    marginLeft: 20,
     
   },
   HowPlayBtnText: {
-    fontSize: 20,
+    textAlign:'center',
+    fontSize: 16,
     fontWeight: "300",
     color: "#191c1a",
     backgroundColor: 'transparent',
