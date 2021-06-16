@@ -12,9 +12,11 @@ import { LinearGradient } from "expo-linear-gradient";
 const Quiz = ({ navigation }) => {
   const [Question, setQuestion] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [currentQuestion,setCurrentQuestion]=useState(0);
 
   const getQuiz = async () => {
-    const url = "https://opentdb.com/api.php?amount=10";
+    const url =
+      "https://opentdb.com/api.php?amount=5&category=18&type=multiple";
     const data = await fetch(url)
       .then((res) => res.json())
       .then((json) => setQuestion(json.results))
@@ -61,28 +63,28 @@ const Quiz = ({ navigation }) => {
 
               <View style={styles.question}>
                 <Text style={styles.questionText}>
-                  Q.{Question[0].question}
+                  Q.{Question[currentQuestion].question}
                 </Text>
               </View>
               <View style={styles.options}>
                 <TouchableOpacity style={styles.option}>
                   <Text style={styles.optionText}>
-                    {Question[0].incorrect_answers[0]}
+                    {Question[currentQuestion].incorrect_answers[0]}
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.option}>
                   <Text style={styles.optionText}>
-                    {Question[0].incorrect_answers[1]}
+                    {Question[currentQuestion].incorrect_answers[1]}
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.option}>
                   <Text style={styles.optionText}>
-                    {Question[0].incorrect_answers[2]}
+                    {Question[currentQuestion].incorrect_answers[2]}
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.option}>
                   <Text style={styles.optionText}>
-                    {Question[0].correct_answer}
+                    {Question[currentQuestion].correct_answer}
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   loadingText: {
-    fontSize: 18,
+    fontSize: 20,
     color: "#e4e1f0",
   },
   banner: {
