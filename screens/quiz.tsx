@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image, Pressable } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 const Quiz = ({ navigation }) => {
   const [Question, setQuestion] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const[score,setScore]=useState(0);
+  const [score, setScore] = useState(0);
 
   const getQuiz = async () => {
     const url =
@@ -24,25 +18,25 @@ const Quiz = ({ navigation }) => {
       .finally(() => setLoading(false));
   };
 
+  //handle questions for screen
   const handleQuestion = () => {
     const nextQuestion = currentQuestion + 1;
     setCurrentQuestion(nextQuestion);
   };
+
+  //handle score
   const handleCorrectAnswers = () => {
-      const newScore = score + 20;
-      setScore(newScore);
+    const newScore = score + 20;
+    setScore(newScore);
   };
-   const handleIncorrectAnswers = () => {
-    if( score !=0 ){
+  const handleIncorrectAnswers = () => {
+    if (score != 0) {
       const newScore = score - 20;
       setScore(newScore);
-    }
-    else{
+    } else {
       setScore(0);
     }
- 
-     
-   };
+  };
 
   useEffect(() => {
     getQuiz();
@@ -91,39 +85,55 @@ const Quiz = ({ navigation }) => {
                   Q.{Question[currentQuestion].question}
                 </Text>
               </View>
+
               <View style={styles.options}>
-                <TouchableOpacity
-                  style={styles.option}
+                <Pressable
+                  style={({ pressed }) => [
+                    { backgroundColor: pressed ? "#538c58" : "#af46eb" },
+                    styles.option,
+                  ]}
                   onPress={handleIncorrectAnswers}
                 >
                   <Text style={styles.optionText}>
                     {Question[currentQuestion].incorrect_answers[0]}
                   </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.option}
+                </Pressable>
+
+                <Pressable
+                  style={({ pressed }) => [
+                    { backgroundColor: pressed ? "#538c58" : "#af46eb" },
+                    styles.option,
+                  ]}
                   onPress={handleIncorrectAnswers}
                 >
                   <Text style={styles.optionText}>
                     {Question[currentQuestion].incorrect_answers[1]}
                   </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.option}
-                  onPress={handleIncorrectAnswers}
-                >
-                  <Text style={styles.optionText}>
-                    {Question[currentQuestion].incorrect_answers[2]}
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.option}
+                </Pressable>
+
+                <Pressable
+                  style={({ pressed }) => [
+                    { backgroundColor: pressed ? "#538c58" : "#af46eb" },
+                    styles.option,
+                  ]}
                   onPress={handleCorrectAnswers}
                 >
                   <Text style={styles.optionText}>
                     {Question[currentQuestion].correct_answer}
                   </Text>
-                </TouchableOpacity>
+                </Pressable>
+
+                <Pressable
+                  style={({ pressed }) => [
+                    { backgroundColor: pressed ? "#538c58" : "#af46eb" },
+                    styles.option,
+                  ]}
+                  onPress={handleIncorrectAnswers}
+                >
+                  <Text style={styles.optionText}>
+                    {Question[currentQuestion].incorrect_answers[2]}
+                  </Text>
+                </Pressable>
               </View>
 
               <View>
@@ -221,7 +231,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#af46eb",
+    // backgroundColor: "#af46eb",
   },
   optionText: {
     fontSize: 16,
@@ -242,5 +252,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 7,
   },
- 
 });
