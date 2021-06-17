@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View, Image, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  Pressable,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { RadioButton } from "react-native-paper";
 
-const Quiz = ({ navigation }) => {
+const Quiz = ({ navigation }: { navigation: any }) => {
   const [Question, setQuestion] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
+  const [checked, setChecked] = useState("");
 
   const getQuiz = async () => {
     const url =
@@ -22,6 +31,7 @@ const Quiz = ({ navigation }) => {
   const handleQuestion = () => {
     const nextQuestion = currentQuestion + 1;
     setCurrentQuestion(nextQuestion);
+    setChecked("");
   };
 
   //handle score
@@ -46,7 +56,7 @@ const Quiz = ({ navigation }) => {
   console.log(score);
 
   return (
-    <View>
+    <View style={{ width: "100%", height: "100%" }}>
       {isLoading ? (
         <View style={{ width: "100%", height: "100%" }}>
           <LinearGradient
@@ -85,21 +95,38 @@ const Quiz = ({ navigation }) => {
                   Q.{Question[currentQuestion].question}
                 </Text>
               </View>
-
-              <View style={styles.options}>
-                <Pressable
-                  style={({ pressed }) => [
-                    { backgroundColor: pressed ? "#538c58" : "#af46eb" },
-                    styles.option,
-                  ]}
-                  onPress={handleIncorrectAnswers}
+              <View>
+                <RadioButton.Group
+                  onValueChange={(value) => setChecked(value)}
+                  value={checked}
                 >
-                  <Text style={styles.optionText}>
-                    {Question[currentQuestion].incorrect_answers[0]}
-                  </Text>
-                </Pressable>
+                  <RadioButton.Item
+                  style={styles.option}
+                    position="leading"
+                    value="first"                  
+                    label={Question[currentQuestion].incorrect_answers[0]}
+                    status={checked === "first" ? "checked" : "unchecked"}
+                  
+                  />
+                  {/* <Text style={styles.optionText}>
+                      {Question[currentQuestion].incorrect_answers[0]}
+                    </Text> */}
 
-                <Pressable
+                  <RadioButton.Item
+                    position="leading"
+                    value="second"
+                    label="bdhsbhbsdchbb"
+                    status={checked === "second" ? "checked" : "unchecked"}
+                    // style={({ checked }) => [
+                    //   { backgroundColor: checked ? "#538c58" : "#af46eb" },
+                    //   styles.option,
+                    // ]}
+                  />
+                </RadioButton.Group>
+                {/* <Text style={styles.optionText}>
+                  {Question[currentQuestion].incorrect_answers[1]}
+                </Text> */}
+                {/* <Pressable
                   style={({ pressed }) => [
                     { backgroundColor: pressed ? "#538c58" : "#af46eb" },
                     styles.option,
@@ -133,7 +160,7 @@ const Quiz = ({ navigation }) => {
                   <Text style={styles.optionText}>
                     {Question[currentQuestion].incorrect_answers[2]}
                   </Text>
-                </Pressable>
+                </Pressable> */}
               </View>
 
               <View>
