@@ -13,6 +13,7 @@ const Quiz = ({ navigation }) => {
   const [Question, setQuestion] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const[score,setScore]=useState(0);
 
   const getQuiz = async () => {
     const url =
@@ -28,6 +29,14 @@ const Quiz = ({ navigation }) => {
     const nextQuestion = currentQuestion + 1;
     setCurrentQuestion(nextQuestion);
   };
+  const handleCorrectAnswers = () => {
+      const newScore = score + 20;
+      setScore(newScore);
+  };
+   const handleIncorrectAnswers = () => {
+     const newScore = score - 20;
+     setScore(newScore);
+   };
 
   useEffect(() => {
     getQuiz();
@@ -76,59 +85,71 @@ const Quiz = ({ navigation }) => {
                 </Text>
               </View>
               <View style={styles.options}>
-                <TouchableOpacity style={styles.option}>
+                <TouchableOpacity
+                  style={styles.option}
+                  onPress={handleIncorrectAnswers}
+                >
                   <Text style={styles.optionText}>
                     {Question[currentQuestion].incorrect_answers[0]}
                   </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.option}>
+                <TouchableOpacity
+                  style={styles.option}
+                  onPress={handleIncorrectAnswers}
+                >
                   <Text style={styles.optionText}>
                     {Question[currentQuestion].incorrect_answers[1]}
                   </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.option}>
+                <TouchableOpacity
+                  style={styles.option}
+                  onPress={handleIncorrectAnswers}
+                >
                   <Text style={styles.optionText}>
                     {Question[currentQuestion].incorrect_answers[2]}
                   </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.option}>
+                <TouchableOpacity
+                  style={styles.option}
+                  onPress={handleCorrectAnswers}
+                >
                   <Text style={styles.optionText}>
                     {Question[currentQuestion].correct_answer}
                   </Text>
                 </TouchableOpacity>
               </View>
 
-             <View>
+              <View>
                 {currentQuestion == 4 ? (
                   <View style={styles.bottom}>
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("Result")}
-                  >
-                    <LinearGradient
-                      colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
-                      start={{ x: 1, y: 0 }}
-                      end={{ x: 0, y: 0 }}
-                      style={styles.button}
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate("Result")}
                     >
-                      <Text style={styles.buttonText}>END</Text>
-                    </LinearGradient>
-                  </TouchableOpacity>
+                      <LinearGradient
+                        colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
+                        start={{ x: 1, y: 0 }}
+                        end={{ x: 0, y: 0 }}
+                        style={styles.button}
+                      >
+                        <Text style={styles.buttonText}>END</Text>
+                      </LinearGradient>
+                    </TouchableOpacity>
                   </View>
                 ) : (
                   <View style={styles.bottom}>
-                  <TouchableOpacity
-                    onPress={handleQuestion}
-                    style={styles.button}
-                  >
-                    <LinearGradient
-                      colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
-                      start={{ x: 1, y: 0 }}
-                      end={{ x: 0, y: 0 }}
+                    <TouchableOpacity
+                      onPress={handleQuestion}
                       style={styles.button}
                     >
-                      <Text style={styles.buttonText}>NEXT</Text>
-                    </LinearGradient>
-                  </TouchableOpacity>
+                      <LinearGradient
+                        colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
+                        start={{ x: 1, y: 0 }}
+                        end={{ x: 0, y: 0 }}
+                        style={styles.button}
+                      >
+                        <Text style={styles.buttonText}>NEXT</Text>
+                      </LinearGradient>
+                    </TouchableOpacity>
                   </View>
                 )}
               </View>
