@@ -95,32 +95,46 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                   Q.{Question[currentQuestion].question}
                 </Text>
               </View>
-              <View>
+
+              <View style={styles.options}>
                 <RadioButton.Group
                   onValueChange={(value) => setChecked(value)}
                   value={checked}
                 >
                   <RadioButton.Item
-                  style={styles.option}
+                    style={styles.option}
                     position="leading"
-                    value="first"                  
+                    value="first"
+                    labelStyle={styles.optionText}
                     label={Question[currentQuestion].incorrect_answers[0]}
                     status={checked === "first" ? "checked" : "unchecked"}
-                  
                   />
-                  {/* <Text style={styles.optionText}>
-                      {Question[currentQuestion].incorrect_answers[0]}
-                    </Text> */}
 
                   <RadioButton.Item
+                    style={styles.option}
                     position="leading"
                     value="second"
-                    label="bdhsbhbsdchbb"
+                    labelStyle={styles.optionText}
+                    label={Question[currentQuestion].incorrect_answers[1]}
                     status={checked === "second" ? "checked" : "unchecked"}
-                    // style={({ checked }) => [
-                    //   { backgroundColor: checked ? "#538c58" : "#af46eb" },
-                    //   styles.option,
-                    // ]}
+                  />
+                  <RadioButton.Item
+                    style={styles.option}
+                    position="leading"
+                    value="second"
+                    labelStyle={styles.optionText}
+                    label={Question[currentQuestion].correct_answer}
+                    onPress={handleCorrectAnswers}
+                    status={checked === "second" ? "checked" : "unchecked"}
+                  />
+                  <RadioButton.Item
+                    style={styles.option}
+                    position="leading"
+                    value="second"
+                    labelStyle={styles.optionText}
+                    label={Question[currentQuestion].incorrect_answers[2]}
+                    onPress={handleIncorrectAnswers}
+                    status={checked === "second" ? "checked" : "unchecked"}
                   />
                 </RadioButton.Group>
                 {/* <Text style={styles.optionText}>
@@ -254,14 +268,17 @@ const styles = StyleSheet.create({
     marginVertical: 16,
   },
   option: {
-    paddingVertical: 12,
-    marginVertical: 10,
+    
+    marginVertical: 8,
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: "#af46eb",
+    textAlign: "center",
+    backgroundColor: "#af46eb",
+   
   },
   optionText: {
     fontSize: 16,
+    textAlign:"left"
   },
   bottom: {
     marginBottom: 12,
