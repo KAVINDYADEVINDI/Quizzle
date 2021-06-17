@@ -12,10 +12,11 @@ import { LinearGradient } from "expo-linear-gradient";
 const Quiz = ({ navigation }) => {
   const [Question, setQuestion] = useState([]);
   const [isLoading, setLoading] = useState(true);
-  const [currentQuestion,setCurrentQuestion]=useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const getQuiz = async () => {
-    const url ="https://opentdb.com/api.php?amount=5&category=18&type=multiple";
+    const url =
+      "https://opentdb.com/api.php?amount=5&category=18&type=multiple";
     const data = await fetch(url)
       .then((res) => res.json())
       .then((json) => setQuestion(json.results))
@@ -23,8 +24,8 @@ const Quiz = ({ navigation }) => {
       .finally(() => setLoading(false));
   };
 
-  const handleQuestion=()=>{
-    const nextQuestion=currentQuestion + 1;
+  const handleQuestion = () => {
+    const nextQuestion = currentQuestion + 1;
     setCurrentQuestion(nextQuestion);
   };
 
@@ -64,7 +65,9 @@ const Quiz = ({ navigation }) => {
               </View>
 
               <View style={styles.top}>
-                <Text style={styles.topText}>Question 1/5</Text>
+                <Text style={styles.topText}>
+                  Question {currentQuestion + 1}/5
+                </Text>
               </View>
 
               <View style={styles.question}>
@@ -95,20 +98,39 @@ const Quiz = ({ navigation }) => {
                 </TouchableOpacity>
               </View>
 
-              <View style={styles.bottom}>
-                <TouchableOpacity onPress={handleQuestion} style={styles.button}>
-                  <LinearGradient
-                    colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
-                    start={{ x: 1, y: 0 }}
-                    end={{ x: 0, y: 0 }}
+             <View>
+                {currentQuestion == 4 ? (
+                  <View style={styles.bottom}>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("Result")}
+                  >
+                    <LinearGradient
+                      colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
+                      start={{ x: 1, y: 0 }}
+                      end={{ x: 0, y: 0 }}
+                      style={styles.button}
+                    >
+                      <Text style={styles.buttonText}>END</Text>
+                    </LinearGradient>
+                  </TouchableOpacity>
+                  </View>
+                ) : (
+                  <View style={styles.bottom}>
+                  <TouchableOpacity
+                    onPress={handleQuestion}
                     style={styles.button}
                   >
-                    <Text style={styles.buttonText}>NEXT</Text>
-                  </LinearGradient>
-                </TouchableOpacity>
-                {/* <TouchableOpacity onPress={() => navigation.navigate("Result")}>
-              <Text>END</Text>
-            </TouchableOpacity> */}
+                    <LinearGradient
+                      colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
+                      start={{ x: 1, y: 0 }}
+                      end={{ x: 0, y: 0 }}
+                      style={styles.button}
+                    >
+                      <Text style={styles.buttonText}>NEXT</Text>
+                    </LinearGradient>
+                  </TouchableOpacity>
+                  </View>
+                )}
               </View>
             </View>
           </LinearGradient>
@@ -182,14 +204,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   button: {
-    width: "60%",
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
     borderRadius: 10,
   },
   buttonText: {
-    fontWeight:"bold",
+    fontWeight: "bold",
     paddingHorizontal: 20,
     paddingVertical: 7,
   },

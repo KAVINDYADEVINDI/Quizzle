@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   HowPlayBtn: {
+    marginTop:5,
     marginHorizontal:10,
     
   },
