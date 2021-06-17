@@ -22,10 +22,17 @@ const Quiz = ({ navigation }) => {
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   };
+
+  const handleQuestion=()=>{
+    const nextQuestion=currentQuestion + 1;
+    setCurrentQuestion(nextQuestion);
+  };
+
   useEffect(() => {
     getQuiz();
   }, []);
-  console.log(Question[0]);
+
+  console.log(Question[currentQuestion]);
 
   return (
     <View>
@@ -89,17 +96,7 @@ const Quiz = ({ navigation }) => {
               </View>
 
               <View style={styles.bottom}>
-                {/* <TouchableOpacity style={styles.button}>
-              <LinearGradient
-                colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
-                start={{ x: 1, y: 0 }}
-                end={{ x: 0, y: 0 }}
-                style={styles.button}
-              >
-                <Text style={styles.buttonText}>SKIP</Text>
-              </LinearGradient>
-            </TouchableOpacity> */}
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity onPress={handleQuestion} style={styles.button}>
                   <LinearGradient
                     colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
                     start={{ x: 1, y: 0 }}
