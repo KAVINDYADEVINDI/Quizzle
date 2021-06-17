@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   View,
   Image,
-  FlatList,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -34,15 +33,23 @@ const Quiz = ({ navigation }) => {
       setScore(newScore);
   };
    const handleIncorrectAnswers = () => {
-     const newScore = score - 20;
-     setScore(newScore);
+    if( score !=0 ){
+      const newScore = score - 20;
+      setScore(newScore);
+    }
+    else{
+      setScore(0);
+    }
+ 
+     
    };
 
   useEffect(() => {
     getQuiz();
   }, []);
 
-  console.log(Question[currentQuestion]);
+  //console.log(Question[currentQuestion]);
+  console.log(score);
 
   return (
     <View>
@@ -235,7 +242,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 7,
   },
-  parent: {
-    height: "100%",
-  },
+ 
 });
