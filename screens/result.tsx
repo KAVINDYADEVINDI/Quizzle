@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 
-const Result = ({route}) => {
-
+// const Result = ({route}) => {
+const Result = () => {
  
   return (
     <View style={{ width: "100%", height: "100%" }}>
@@ -10,8 +10,8 @@ const Result = ({route}) => {
         source={require("../assets/images/result.jpg")}
         style={styles.backgroundImage}
       >
-        <View>
-          <Text>{route.params.paramKey}</Text>
+        <View style={styles.centerBox}>
+          {/*  <Text>{route.params.paramKey}</Text> */}
         </View>
         
       </ImageBackground>
@@ -27,5 +27,9 @@ const styles = StyleSheet.create({
     height: "100%",
     flex: 1,
     resizeMode: "cover", // or 'stretch'
+  },
+  centerBox:{
+    width:'60%',
+    height:'60%',
   },
 });
