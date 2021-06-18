@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import Emoji from "react-native-emoji";
 
 // const Result = ({route}) => {
 const Result = () => {
@@ -33,11 +34,14 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    
   },
   centerBox: {
+    marginTop: "50%",
     width: "80%",
-    height: "60%",
-    backgroundColor: "#727d78",
+    height: "40%",
+    paddingHorizontal: 20,
+    backgroundColor: "#5d4666",
+    opacity: 0.6,
+    borderRadius: 30,
   },
 });
