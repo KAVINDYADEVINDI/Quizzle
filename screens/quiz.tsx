@@ -41,7 +41,6 @@ const Quiz = ({ navigation }: { navigation: any }) => {
   //handle score
   const handleEndButton = () => {
     const newScore = score + 20;
-
     checked == "third" ? setScore(newScore) : (null);
     navigation.navigate("Result",{paramKey:score});
   };
