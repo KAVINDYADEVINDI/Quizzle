@@ -31,7 +31,7 @@ const Result = () => {
             </Text>
             <Image
               style={styles.logo}
-              source={{ uri: "asset:/images/k.png" }}
+              source={require("../assets/images/k.png")}
             />
             <Button
               onPress={_handlePress}
@@ -111,8 +111,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   logo: {
-    height: 130,
-    width: 130,
+    height: 200,
+    width: 200,
     marginBottom: 20,
   },
   Container: {
