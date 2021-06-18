@@ -107,6 +107,7 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                     value="first"
                     labelStyle={styles.optionText}
                     label={Question[currentQuestion].incorrect_answers[0]}
+                    onPress={handleIncorrectAnswers}
                     status={checked === "first" ? "checked" : "unchecked"}
                   />
 
@@ -116,65 +117,28 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                     value="second"
                     labelStyle={styles.optionText}
                     label={Question[currentQuestion].incorrect_answers[1]}
-                    status={checked === "second" ? "checked" : "unchecked"}
-                  />
-                  <RadioButton.Item
-                    style={styles.option}
-                    position="leading"
-                    value="second"
-                    labelStyle={styles.optionText}
-                    label={Question[currentQuestion].correct_answer}
-                    onPress={handleCorrectAnswers}
-                    status={checked === "second" ? "checked" : "unchecked"}
-                  />
-                  <RadioButton.Item
-                    style={styles.option}
-                    position="leading"
-                    value="second"
-                    labelStyle={styles.optionText}
-                    label={Question[currentQuestion].incorrect_answers[2]}
                     onPress={handleIncorrectAnswers}
                     status={checked === "second" ? "checked" : "unchecked"}
                   />
+                  <RadioButton.Item
+                    style={styles.option}
+                    position="leading"
+                    value="third"
+                    labelStyle={styles.optionText}
+                    label={Question[currentQuestion].correct_answer}
+                    onPress={handleCorrectAnswers}
+                    status={checked === "third" ? "checked" : "unchecked"}
+                  />
+                  <RadioButton.Item
+                    style={styles.option}
+                    position="leading"
+                    value="fourth"
+                    labelStyle={styles.optionText}
+                    label={Question[currentQuestion].incorrect_answers[2]}
+                    onPress={handleIncorrectAnswers}
+                    status={checked === "fourth" ? "checked" : "unchecked"}
+                  />
                 </RadioButton.Group>
-                {/* <Text style={styles.optionText}>
-                  {Question[currentQuestion].incorrect_answers[1]}
-                </Text> */}
-                {/* <Pressable
-                  style={({ pressed }) => [
-                    { backgroundColor: pressed ? "#538c58" : "#af46eb" },
-                    styles.option,
-                  ]}
-                  onPress={handleIncorrectAnswers}
-                >
-                  <Text style={styles.optionText}>
-                    {Question[currentQuestion].incorrect_answers[1]}
-                  </Text>
-                </Pressable>
-
-                <Pressable
-                  style={({ pressed }) => [
-                    { backgroundColor: pressed ? "#538c58" : "#af46eb" },
-                    styles.option,
-                  ]}
-                  onPress={handleCorrectAnswers}
-                >
-                  <Text style={styles.optionText}>
-                    {Question[currentQuestion].correct_answer}
-                  </Text>
-                </Pressable>
-
-                <Pressable
-                  style={({ pressed }) => [
-                    { backgroundColor: pressed ? "#538c58" : "#af46eb" },
-                    styles.option,
-                  ]}
-                  onPress={handleIncorrectAnswers}
-                >
-                  <Text style={styles.optionText}>
-                    {Question[currentQuestion].incorrect_answers[2]}
-                  </Text>
-                </Pressable> */}
               </View>
 
               <View>
@@ -268,17 +232,15 @@ const styles = StyleSheet.create({
     marginVertical: 16,
   },
   option: {
-    
     marginVertical: 8,
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
     backgroundColor: "#af46eb",
-   
   },
   optionText: {
     fontSize: 16,
-    textAlign:"left"
+    textAlign: "left",
   },
   bottom: {
     marginBottom: 12,
