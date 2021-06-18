@@ -10,10 +10,11 @@ const Result = () => {
         source={require("../assets/images/result.jpg")}
         style={styles.backgroundImage}
       >
-        <View style={styles.centerBox}>
-          {/*  <Text>{route.params.paramKey}</Text> */}
+        <View style={styles.container}>
+          <View style={styles.centerBox}>
+            {/*  <Text>{route.params.paramKey}</Text> */}
+          </View>
         </View>
-        
       </ImageBackground>
     </View>
   );
@@ -28,8 +29,15 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover", // or 'stretch'
   },
-  centerBox:{
-    width:'60%',
-    height:'60%',
+  container:{
+    
+  }
+  centerBox: {
+    width: "80%",
+    height: "40%",
+    backgroundColor: "#727d78",
+    
+    marginVertical:60,
+    marginHorizontal:40,
   },
 });
