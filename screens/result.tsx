@@ -12,7 +12,8 @@ const Result = () => {
       >
         <View style={styles.container}>
           <View style={styles.centerBox}>
-            {/*  <Text>{route.params.paramKey}</Text> */}
+            {/* <Text>{route.params.paramKey}</Text> */}
+            <Text>kavi</Text>
           </View>
         </View>
       </ImageBackground>
@@ -29,15 +30,14 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover", // or 'stretch'
   },
-  container:{
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
     
-  }
+  },
   centerBox: {
     width: "80%",
-    height: "40%",
+    height: "60%",
     backgroundColor: "#727d78",
-    
-    marginVertical:60,
-    marginHorizontal:40,
   },
 });

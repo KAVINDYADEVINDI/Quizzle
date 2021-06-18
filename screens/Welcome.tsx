@@ -5,7 +5,7 @@ import Title from '../components/title';
 
 
 
-const Welcome = ({navigation}) => {
+const Welcome = ({ navigation }: { navigation: any }) => {
     return (
       <View style={{ width: "100%", height: "100%" }}>
         <ImageBackground
