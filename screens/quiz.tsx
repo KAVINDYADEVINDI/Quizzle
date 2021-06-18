@@ -43,7 +43,7 @@ const Quiz = ({ navigation }: { navigation: any }) => {
     const newScore = score + 20;
 
     checked == "third" ? setScore(newScore) : (null);
-    navigation.navigate("Result",{paramKey:{score}});
+    navigation.navigate("Result",{paramKey:score});
   };
 
   useEffect(() => {

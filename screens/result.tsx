@@ -1,7 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 
-const Result = () => {
+const Result = ({route}) => {
+
+ 
   return (
     <View style={{ width: "100%", height: "100%" }}>
       <ImageBackground
@@ -9,7 +11,7 @@ const Result = () => {
         style={styles.backgroundImage}
       >
         <View>
-          <Text>hello result</Text>
+          <Text>{route.params.paramKey}</Text>
         </View>
         
       </ImageBackground>
