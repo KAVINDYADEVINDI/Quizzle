@@ -137,7 +137,7 @@ const Quiz = ({ navigation }: { navigation: any }) => {
               <View>
                 {currentQuestion == 4 ? (
                   <View style={styles.bottom}>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={handleEndButton}>
                       <LinearGradient
                         colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
                         start={{ x: 1, y: 0 }}
