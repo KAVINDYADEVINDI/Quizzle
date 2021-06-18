@@ -1,22 +1,31 @@
-import React  from "react";
-import { StyleSheet, Text, View, ImageBackground, Button ,Image} from "react-native";
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Button,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 
 import ConfettiCannon from "react-native-confetti-cannon";
 import { useState } from "react";
+import { LinearGradient } from "expo-linear-gradient";
 
 // const Result = ({route}) => {
 const Result = () => {
-  const [state,setState]=useState("false");
+  const [state, setState] = useState("false");
 
- const  _handlePress=()=> {
+  const _handlePress = () => {
     //To fire the cannon again. You can make your own logic here
-      setState( "true" );
+    setState("true");
     setTimeout(() => {
       setState("true ");
     }, 10000);
-  }
+  };
   console.log(state);
- 
+
   return (
     <View style={{ width: "100%", height: "100%" }}>
       <ImageBackground
@@ -37,6 +46,7 @@ const Result = () => {
               onPress={_handlePress}
               title="Claim Now"
               color="#841584"
+              style={styles.claimBtn}
               accessibilityLabel="Learn more about this purple button"
             />
           </View>
@@ -49,6 +59,20 @@ const Result = () => {
             />
           ) : null}
         </View>
+
+        <TouchableOpacity
+          style={styles.Btn}
+          // onPress={() => navigation.navigate("Quiz")}
+        >
+          <LinearGradient
+            colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
+            start={{ x: 1, y: 0 }}
+            end={{ x: 0, y: 0 }}
+            style={styles.gradient}
+          >
+            <Text style={styles.BtnText}> Try Again </Text>
+          </LinearGradient>
+        </TouchableOpacity>
       </ImageBackground>
     </View>
 
@@ -82,21 +106,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  centerBox: {
-    marginTop: "50%",
-    width: "80%",
-    height: "40%",
-    paddingHorizontal: 20,
-    backgroundColor: "#5d4666",
-    opacity: 0.6,
-    borderRadius: 30,
-    resizeMode: "contain",
-  },
+
   cardLayoutView: {
+    marginTop: 150,
+    width: "90%",
     alignItems: "center",
     justifyContent: "center",
     padding: 24,
+    borderRadius: 30,
     backgroundColor: "#fff9c4",
+    shadowColor: "#1c632f",
+    shadowOpacity: 0.9,
+    elevation: 16,
+    shadowRadius: 15,
   },
   paragraphHeading: {
     margin: 24,
@@ -119,5 +141,32 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+
+  claimBtn:{
+borderRadius:15,
+  },
+  Btn: {
+    marginHorizontal: 100,
+    width: "50%",
+    marginVertical: 40,
+  },
+  gradient: {
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    borderRadius: 25,
+    padding: 6,
+    shadowColor: "#1c632f",
+    shadowOpacity: 0.9,
+    elevation: 16,
+    shadowRadius: 15,
+    shadowOffset: { width: 1, height: 23 },
+  },
+  BtnText: {
+    fontSize: 20,
+    fontWeight: "300",
+    color: "#fff",
+    backgroundColor: "transparent",
   },
 });
