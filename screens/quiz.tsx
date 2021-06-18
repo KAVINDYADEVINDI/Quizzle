@@ -31,38 +31,24 @@ const Quiz = ({ navigation }: { navigation: any }) => {
   const handleQuestion = () => {
     const nextQuestion = currentQuestion + 1;
     setCurrentQuestion(nextQuestion);
+
+    const newScore = score + 20;
+    checked == "third" ? setScore(newScore) :(null);
+
     setChecked("");
   };
 
   //handle score
-  // const handleCorrectAnswers = () => {
-  //   const newScore = score + 20;
-  //   setScore(newScore);
-  // };
-  // const handleIncorrectAnswers = () => {
-  //   if (score != 0) {
-  //     const newScore = score - 20;
-  //     setScore(newScore);
-  //   } else {
-  //     setScore(0);
-  //   }
-  // };
+  const handleEndButton = () => {
+    const newScore = score + 20;
 
-  const handleAnswers =  (val) => {
-    if (val == "third" ) {
-      const newScore = score + 20;
-      setScore(newScore);
-    }
-    else{
-      const newScore = score -20;
-      setScore(newScore);
-    }
+    checked == "third" ? setScore(newScore) : (null);
+    navigation.navigate("Result");
   };
 
   useEffect(() => {
     getQuiz();
   }, []);
-  //console.log(currentQuestion);
 
   console.log(score);
 
@@ -111,17 +97,13 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                 <RadioButton.Group
                   onValueChange={(value) => setChecked(value)}
                   value={checked}
-                  onPress={handleAnswers(checked)}
                 >
                   <RadioButton.Item
-                    // theme=ReactNativePaper.Theme
                     style={styles.option}
                     position="leading"
                     value="first"
-                    mode="android"
                     labelStyle={styles.optionText}
                     label={Question[currentQuestion].incorrect_answers[0]}
-                    // onPress={() => console.log("Incorrect")}
                     status={checked === "first" ? "checked" : "unchecked"}
                   />
 
@@ -131,7 +113,6 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                     value="second"
                     labelStyle={styles.optionText}
                     label={Question[currentQuestion].incorrect_answers[1]}
-                    // onPress={() => console.log("Incorrect")}
                     status={checked === "second" ? "checked" : "unchecked"}
                   />
                   <RadioButton.Item
@@ -140,7 +121,6 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                     value="third"
                     labelStyle={styles.optionText}
                     label={Question[currentQuestion].correct_answer}
-                    // onPress={() => console.log("correct")}
                     status={checked === "third" ? "checked" : "unchecked"}
                   />
                   <RadioButton.Item
@@ -149,7 +129,6 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                     value="fourth"
                     labelStyle={styles.optionText}
                     label={Question[currentQuestion].incorrect_answers[2]}
-                    // onPress={() => console.log("Incorrect")}
                     status={checked === "fourth" ? "checked" : "unchecked"}
                   />
                 </RadioButton.Group>
@@ -158,9 +137,7 @@ const Quiz = ({ navigation }: { navigation: any }) => {
               <View>
                 {currentQuestion == 4 ? (
                   <View style={styles.bottom}>
-                    <TouchableOpacity
-                      onPress={() => navigation.navigate("Result")}
-                    >
+                    <TouchableOpacity >
                       <LinearGradient
                         colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
                         start={{ x: 1, y: 0 }}
