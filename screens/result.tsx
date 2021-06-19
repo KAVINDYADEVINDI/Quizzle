@@ -14,7 +14,7 @@ import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
 const Result = ({route}) => {
-const Result = () => {
+
   const [state, setState] = useState("false");
 
   const _handlePress = () => {
