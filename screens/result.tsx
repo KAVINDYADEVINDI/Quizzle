@@ -19,7 +19,7 @@ const Result = ({ route ,navigation}) => {
   const [state, setState] = useState("false");
 
   const _handlePress = () => {
-    //To fire the cannon again. You can make your own logic here
+    
     setState("true");
     setTimeout(() => {
       setState("true ");
@@ -39,7 +39,7 @@ const Result = ({ route ,navigation}) => {
               <Text style={styles.paragraphHeading}>Congratulations!!</Text>
               <Text style={styles.score}>{route.params.paramKey}%</Text>
               <Text style={styles.paragraph}>
-                You have recieved {route.params.paramKey}0 Rs Cashback
+                You have recieved {route.params.paramKey}0 Stars Collect Now
               </Text>
               <Image
                 style={styles.logo}
