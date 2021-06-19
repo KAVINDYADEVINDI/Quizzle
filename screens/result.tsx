@@ -33,28 +33,39 @@ const Result = ({route}) => {
         style={styles.backgroundImage}
       >
         <View style={styles.Container}>
-          <View style={styles.cardLayoutView}>
-            <Text style={styles.paragraphHeading}>Congratulations!!</Text>
-            <Text style={styles.score}>{route.params.paramKey}%</Text>
-            <Text style={styles.paragraph}>
-              You have recieved {route.params.paramKey}0 Rs Cashback
-            </Text>
-            <Image
-              style={styles.logo}
-              source={require("../assets/images/k.png")}
-            />
-            <Button
-              onPress={_handlePress}
-              title="Claim Now"
-              color="#841584"
-              accessibilityLabel="Learn more about this purple button"
-            />
-            {/* <Text style={styles.paragraphHeading}>Don't worry Try Again!!</Text>
-            <Image
-              style={styles.logo}
-              source={require("../assets/images/sad.png")}
-            />
-            <Text style={styles.score}>0%</Text> */}
+          
+            {route.params.paramKey >= 60 ? (
+              <View style={styles.cardLayoutView}>
+               
+                <Text style={styles.paragraphHeading}>Congratulations!!</Text>
+                <Text style={styles.score}>{route.params.paramKey}%</Text>
+                <Text style={styles.paragraph}>
+                  You have recieved {route.params.paramKey}0 Rs Cashback
+                </Text>
+                <Image
+                  style={styles.logo}
+                  source={require("../assets/images/k.png")}
+                />
+                <Button
+                  onPress={_handlePress}
+                  title="Claim Now"
+                  color="#841584"
+                  accessibilityLabel="Learn more about this purple button"
+                />
+              </View>
+            ) : (
+              <View style={styles.cardLayoutView}>
+              
+                <Text style={styles.paragraphHeading}>
+                  Don't worry Try Again!!
+                </Text>
+                <Image
+                  style={styles.logo}
+                  source={require("../assets/images/sad.png")}
+                />
+                <Text style={styles.score}>{route.params.paramKey}%</Text>
+              </View>
+            )}
 
             <TouchableOpacity
               style={styles.Btn}
@@ -78,24 +89,10 @@ const Result = ({route}) => {
               origin={{ x: -10, y: 10 }}
             />
           ) : null}
-        </View>
+        
       </ImageBackground>
     </View>
 
-    // <View style={{ width: "100%", height: "100%" }}>
-    //   <ImageBackground
-    //     source={require("../assets/images/result.jpg")}
-    //     style={styles.backgroundImage}
-    //   >
-    //     <View style={styles.container}>
-    //       <View style={styles.centerBox}>
-    //         <Emoji name="face" style={{ fontSize: 50 }} />
-    //         {/* <Text>{route.params.paramKey}</Text> */}
-    //         <Text>kavi</Text>
-    //       </View>
-    //     </View>
-    //   </ImageBackground>
-    // </View>
   );
 };
 
@@ -184,4 +181,5 @@ const styles = StyleSheet.create({
     color: "#fff",
     backgroundColor: "transparent",
   },
+  
 });

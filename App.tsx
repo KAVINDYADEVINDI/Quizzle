@@ -9,8 +9,7 @@ import Result from "./screens/result";
 import Welcome from "./screens/Welcome";
 
 export default function App() {
-  return (
-  
+  return (  
       <NavigationContainer>
         <MyStack />      
       </NavigationContainer>
