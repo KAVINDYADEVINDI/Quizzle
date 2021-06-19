@@ -56,7 +56,7 @@ const Quiz = ({ navigation }: { navigation: any }) => {
   }, []);
 
   console.log(score);
-
+console.log(Question[currentQuestion]);
   return (
     <View style={{ width: "100%", height: "100%" }}>
       {isLoading ? (
@@ -103,7 +103,13 @@ const Quiz = ({ navigation }: { navigation: any }) => {
 
               <View style={styles.question}>
                 <Text style={styles.questionText}>
-                  Q.{Question[currentQuestion].question}
+                  Q.
+                  {Question[currentQuestion].question.replace(
+                    /&quot;/g,
+                    '"',
+                    /&#039;/s,
+                    "'"
+                  )}
                 </Text>
               </View>
 
@@ -117,7 +123,14 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                     position="leading"
                     value="first"
                     labelStyle={styles.optionText}
-                    label={Question[currentQuestion].incorrect_answers[0]}
+                    label={Question[
+                      currentQuestion
+                    ].incorrect_answers[0].replace(
+                      /&quot;/g,
+                      '"',
+                      /&#039;/s,
+                      "'"
+                    )}
                     status={checked === "first" ? "checked" : "unchecked"}
                   />
 
@@ -126,7 +139,14 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                     position="leading"
                     value="second"
                     labelStyle={styles.optionText}
-                    label={Question[currentQuestion].incorrect_answers[1]}
+                    label={Question[
+                      currentQuestion
+                    ].incorrect_answers[1].replace(
+                      /&quot;/g,
+                      '"',
+                      /&#039;/s,
+                      "'"
+                    )}
                     status={checked === "second" ? "checked" : "unchecked"}
                   />
                   <RadioButton.Item
@@ -134,7 +154,12 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                     position="leading"
                     value="third"
                     labelStyle={styles.optionText}
-                    label={Question[currentQuestion].correct_answer}
+                    label={Question[currentQuestion].correct_answer.replace(
+                      /&quot;/g,
+                      '"',
+                      /&#039;/s,
+                      "'"
+                    )}
                     status={checked === "third" ? "checked" : "unchecked"}
                   />
                   <RadioButton.Item
@@ -142,7 +167,14 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                     position="leading"
                     value="fourth"
                     labelStyle={styles.optionText}
-                    label={Question[currentQuestion].incorrect_answers[2]}
+                    label={Question[
+                      currentQuestion
+                    ].incorrect_answers[2].replace(
+                      /&quot;/g,
+                      '"',
+                      /&#039;/s,
+                      "'"
+                    )}
                     status={checked === "fourth" ? "checked" : "unchecked"}
                   />
                 </RadioButton.Group>
