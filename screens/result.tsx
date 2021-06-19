@@ -13,7 +13,7 @@ import ConfettiCannon from "react-native-confetti-cannon";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
-// const Result = ({route}) => {
+const Result = ({route}) => {
 const Result = () => {
   const [state, setState] = useState("false");
 
@@ -34,14 +34,10 @@ const Result = () => {
       >
         <View style={styles.Container}>
           <View style={styles.cardLayoutView}>
-            {/* <Text style={styles.paragraphHeading}>Congratulations!!</Text>
-            <Image
-              style={styles.logo}
-              source={require("../assets/images/sad.png")}
-            />
-            <Text style={styles.score}>40%</Text>
+            <Text style={styles.paragraphHeading}>Congratulations!!</Text>
+            <Text style={styles.score}>{route.params.paramKey}%</Text>
             <Text style={styles.paragraph}>
-              You have recieved 500 Rs Cashback
+              You have recieved {route.params.paramKey}0 Rs Cashback
             </Text>
             <Image
               style={styles.logo}
@@ -52,14 +48,13 @@ const Result = () => {
               title="Claim Now"
               color="#841584"
               accessibilityLabel="Learn more about this purple button"
-            /> */}
-            <Text style={styles.paragraphHeading}>Don't worry Try Again!!</Text>
+            />
+            {/* <Text style={styles.paragraphHeading}>Don't worry Try Again!!</Text>
             <Image
               style={styles.logo}
               source={require("../assets/images/sad.png")}
             />
-            <Text style={styles.score}>0%</Text>
-  
+            <Text style={styles.score}>0%</Text> */}
 
             <TouchableOpacity
               style={styles.Btn}

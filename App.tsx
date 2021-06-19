@@ -10,10 +10,10 @@ import Welcome from "./screens/Welcome";
 
 export default function App() {
   return (
-    <Result></Result> 
-      // <NavigationContainer>
-      //   <MyStack />      
-      // </NavigationContainer>
+    
+      <NavigationContainer>
+        <MyStack />      
+      </NavigationContainer>
   );
 }
 
