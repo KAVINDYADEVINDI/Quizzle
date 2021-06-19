@@ -34,8 +34,11 @@ const Result = () => {
       >
         <View style={styles.Container}>
           <View style={styles.cardLayoutView}>
-            <Text style={styles.paragraphHeading}>Congratulation!!</Text>
-            
+            {/* <Text style={styles.paragraphHeading}>Congratulations!!</Text>
+            <Image
+              style={styles.logo}
+              source={require("../assets/images/sad.png")}
+            />
             <Text style={styles.score}>40%</Text>
             <Text style={styles.paragraph}>
               You have recieved 500 Rs Cashback
@@ -49,31 +52,38 @@ const Result = () => {
               title="Claim Now"
               color="#841584"
               accessibilityLabel="Learn more about this purple button"
+            /> */}
+            <Text style={styles.paragraphHeading}>Don't worry Try Again!!</Text>
+            <Image
+              style={styles.logo}
+              source={require("../assets/images/sad.png")}
             />
+            <Text style={styles.score}>0%</Text>
+  
+
+            <TouchableOpacity
+              style={styles.Btn}
+              // onPress={() => navigation.navigate("Quiz")}
+            >
+              <LinearGradient
+                colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
+                start={{ x: 1, y: 0 }}
+                end={{ x: 0, y: 0 }}
+                style={styles.gradient}
+              >
+                <Text style={styles.BtnText}> Try Again </Text>
+              </LinearGradient>
+            </TouchableOpacity>
           </View>
 
           {state == "true" ? (
             <ConfettiCannon
-              count={200}
+              count={300}
               explosionSpeed={350}
               origin={{ x: -10, y: 10 }}
             />
           ) : null}
         </View>
-
-        <TouchableOpacity
-          style={styles.Btn}
-          // onPress={() => navigation.navigate("Quiz")}
-        >
-          <LinearGradient
-            colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
-            start={{ x: 1, y: 0 }}
-            end={{ x: 0, y: 0 }}
-            style={styles.gradient}
-          >
-            <Text style={styles.BtnText}> Try Again </Text>
-          </LinearGradient>
-        </TouchableOpacity>
       </ImageBackground>
     </View>
 
@@ -109,11 +119,11 @@ const styles = StyleSheet.create({
   },
 
   cardLayoutView: {
-    marginTop: 150,
+  
     width: "90%",
     alignItems: "center",
     justifyContent: "center",
-    padding: 24,
+    padding: 20,
     borderRadius: 30,
     backgroundColor: "#fff9c4",
     shadowColor: "#1c632f",
@@ -171,7 +181,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.9,
     elevation: 16,
     shadowRadius: 15,
-    shadowOffset: { width: 1, height: 23 },
+    shadowOffset: { width: 1, height: 10 },
   },
   BtnText: {
     fontSize: 20,
