@@ -35,6 +35,8 @@ const Result = () => {
         <View style={styles.Container}>
           <View style={styles.cardLayoutView}>
             <Text style={styles.paragraphHeading}>Congratulation!!</Text>
+            
+            <Text style={styles.score}>40%</Text>
             <Text style={styles.paragraph}>
               You have recieved 500 Rs Cashback
             </Text>
@@ -46,7 +48,6 @@ const Result = () => {
               onPress={_handlePress}
               title="Claim Now"
               color="#841584"
-              style={styles.claimBtn}
               accessibilityLabel="Learn more about this purple button"
             />
           </View>
@@ -132,6 +133,15 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
   },
+  score: {
+    fontSize: 40,
+    fontWeight: "700",
+    textShadowColor: "#8c308b",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 10,
+    
+    color: "#841584",
+  },
   logo: {
     height: 200,
     width: 200,
@@ -143,8 +153,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  claimBtn:{
-borderRadius:15,
+  claimBtn: {
+    borderRadius: 15,
   },
   Btn: {
     marginHorizontal: 100,
