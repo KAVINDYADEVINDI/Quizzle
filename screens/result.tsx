@@ -68,11 +68,11 @@ const Result = ({ route ,navigation}) => {
           ) : (
             <View style={styles.cardLayoutView}>
               <Text style={styles.paragraphHeading}>
-                Don't worry Try Again!!
+                Don't worry !!!
               </Text>
               
               <Image
-                source={require("../assets/sad.gif")}
+                source={require("../assets/sad2.gif")}
                 style={styles.logo}
               />
 
