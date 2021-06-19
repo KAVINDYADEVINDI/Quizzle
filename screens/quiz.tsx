@@ -108,7 +108,7 @@ console.log(Question[currentQuestion]);
                     /&quot;/g,
                     '"',
                     /&#039;/g,
-                    "'"
+                    "`"
                   )}
                 </Text>
               </View>
@@ -129,7 +129,7 @@ console.log(Question[currentQuestion]);
                       /&quot;/g,
                       '"',
                       /&#039;/g,
-                      "'"
+                      "`"
                     )}
                     status={checked === "first" ? "checked" : "unchecked"}
                   />
@@ -145,7 +145,7 @@ console.log(Question[currentQuestion]);
                       /&quot;/g,
                       '"',
                       /&#039;/g,
-                      "'"
+                      "`"
                     )}
                     status={checked === "second" ? "checked" : "unchecked"}
                   />
@@ -158,7 +158,7 @@ console.log(Question[currentQuestion]);
                       /&quot;/g,
                       '"',
                       /&#039;/g,
-                      "'"
+                      "`"
                     )}
                     status={checked === "third" ? "checked" : "unchecked"}
                   />
@@ -173,7 +173,7 @@ console.log(Question[currentQuestion]);
                       /&quot;/g,
                       '"',
                       /&#039;/g,
-                      "'"
+                      "`"
                     )}
                     status={checked === "fourth" ? "checked" : "unchecked"}
                   />
