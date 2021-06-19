@@ -13,8 +13,7 @@ import ConfettiCannon from "react-native-confetti-cannon";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
-const Result = ({route}) => {
-
+const Result = ({ route }) => {
   const [state, setState] = useState("false");
 
   const _handlePress = () => {
@@ -33,66 +32,72 @@ const Result = ({route}) => {
         style={styles.backgroundImage}
       >
         <View style={styles.Container}>
-          
-            {route.params.paramKey >= 60 ? (
-              <View style={styles.cardLayoutView}>
-               
-                <Text style={styles.paragraphHeading}>Congratulations!!</Text>
-                <Text style={styles.score}>{route.params.paramKey}%</Text>
-                <Text style={styles.paragraph}>
-                  You have recieved {route.params.paramKey}0 Rs Cashback
-                </Text>
-                <Image
-                  style={styles.logo}
-                  source={require("../assets/images/k.png")}
-                />
-                <Button
-                  onPress={_handlePress}
-                  title="Claim Now"
-                  color="#841584"
-                  accessibilityLabel="Learn more about this purple button"
-                />
-              </View>
-            ) : (
-              <View style={styles.cardLayoutView}>
-              
-                <Text style={styles.paragraphHeading}>
-                  Don't worry Try Again!!
-                </Text>
-                <Image
-                  style={styles.logo}
-                  source={require("../assets/images/sad.png")}
-                />
-                <Text style={styles.score}>{route.params.paramKey}%</Text>
-              </View>
-            )}
-
-            <TouchableOpacity
-              style={styles.Btn}
-              // onPress={() => navigation.navigate("Quiz")}
-            >
-              <LinearGradient
-                colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
-                start={{ x: 1, y: 0 }}
-                end={{ x: 0, y: 0 }}
-                style={styles.gradient}
+          {route.params.paramKey >= 60 ? (
+            <View style={styles.cardLayoutView}>
+              <Text style={styles.paragraphHeading}>Congratulations!!</Text>
+              <Text style={styles.score}>{route.params.paramKey}%</Text>
+              <Text style={styles.paragraph}>
+                You have recieved {route.params.paramKey}0 Rs Cashback
+              </Text>
+              <Image
+                style={styles.logo}
+                source={require("../assets/images/k.png")}
+              />
+              <Button
+                onPress={_handlePress}
+                title="Claim Now"
+                color="#841584"
+                accessibilityLabel="Learn more about this purple button"
+              />
+              <TouchableOpacity
+                style={styles.Btn}
+                // onPress={() => navigation.navigate("Quiz")}
               >
-                <Text style={styles.BtnText}> Try Again </Text>
-              </LinearGradient>
-            </TouchableOpacity>
-          </View>
-
-          {state == "true" ? (
-            <ConfettiCannon
-              count={300}
-              explosionSpeed={350}
-              origin={{ x: -10, y: 10 }}
-            />
-          ) : null}
-        
+                <LinearGradient
+                  colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
+                  start={{ x: 1, y: 0 }}
+                  end={{ x: 0, y: 0 }}
+                  style={styles.gradient}
+                >
+                  <Text style={styles.BtnText}> Try Again </Text>
+                </LinearGradient>
+              </TouchableOpacity>
+            </View>
+          ) : (
+            <View style={styles.cardLayoutView}>
+              <Text style={styles.paragraphHeading}>
+                Don't worry Try Again!!
+              </Text>
+              <Image
+                style={styles.logo}
+                source={{uri:"https://tenor.com/view/crying-emoji-gif-10800494"}}
+              />
+              <Text style={styles.score}>{route.params.paramKey}%</Text>
+              <TouchableOpacity
+                style={styles.Btn}
+                onPress={() => navigation.navigate("Welcome")}
+              >
+                <LinearGradient
+                  colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
+                  start={{ x: 1, y: 0 }}
+                  end={{ x: 0, y: 0 }}
+                  style={styles.gradient}
+                >
+                  <Text style={styles.BtnText}> Try Again </Text>
+                </LinearGradient>
+              </TouchableOpacity>
+            </View>
+          )}
+        </View>
       </ImageBackground>
+      {state == "true" ? (
+        <ConfettiCannon
+          count={300}
+          explosionSpeed={350}
+          origin={{ x: -10, y: 10 }}
+        />
+      ) : null}
     </View>
-
   );
 };
 
@@ -111,7 +116,6 @@ const styles = StyleSheet.create({
   },
 
   cardLayoutView: {
-  
     width: "90%",
     alignItems: "center",
     justifyContent: "center",
@@ -125,7 +129,7 @@ const styles = StyleSheet.create({
   },
   paragraphHeading: {
     margin: 24,
-    fontSize: 20,
+    fontSize: 28,
     fontWeight: "bold",
     textAlign: "center",
     color: "green",
@@ -141,7 +145,7 @@ const styles = StyleSheet.create({
     textShadowColor: "#8c308b",
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 10,
-    
+
     color: "#841584",
   },
   logo: {
@@ -181,5 +185,4 @@ const styles = StyleSheet.create({
     color: "#fff",
     backgroundColor: "transparent",
   },
-  
 });
