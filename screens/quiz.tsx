@@ -107,7 +107,7 @@ console.log(Question[currentQuestion]);
                   {Question[currentQuestion].question.replace(
                     /&quot;/g,
                     '"',
-                    /&#039;/s,
+                    /&#039;/g,
                     "'"
                   )}
                 </Text>
@@ -128,7 +128,7 @@ console.log(Question[currentQuestion]);
                     ].incorrect_answers[0].replace(
                       /&quot;/g,
                       '"',
-                      /&#039;/s,
+                      /&#039;/g,
                       "'"
                     )}
                     status={checked === "first" ? "checked" : "unchecked"}
@@ -144,7 +144,7 @@ console.log(Question[currentQuestion]);
                     ].incorrect_answers[1].replace(
                       /&quot;/g,
                       '"',
-                      /&#039;/s,
+                      /&#039;/g,
                       "'"
                     )}
                     status={checked === "second" ? "checked" : "unchecked"}
@@ -157,7 +157,7 @@ console.log(Question[currentQuestion]);
                     label={Question[currentQuestion].correct_answer.replace(
                       /&quot;/g,
                       '"',
-                      /&#039;/s,
+                      /&#039;/g,
                       "'"
                     )}
                     status={checked === "third" ? "checked" : "unchecked"}
@@ -172,7 +172,7 @@ console.log(Question[currentQuestion]);
                     ].incorrect_answers[2].replace(
                       /&quot;/g,
                       '"',
-                      /&#039;/s,
+                      /&#039;/g,
                       "'"
                     )}
                     status={checked === "fourth" ? "checked" : "unchecked"}
