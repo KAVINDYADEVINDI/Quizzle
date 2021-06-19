@@ -13,7 +13,8 @@ import ConfettiCannon from "react-native-confetti-cannon";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
-const Result = ({ route }) => {
+
+const Result = ({ route ,navigation}) => {
   const [state, setState] = useState("false");
 
   const _handlePress = () => {
@@ -51,7 +52,7 @@ const Result = ({ route }) => {
               />
               <TouchableOpacity
                 style={styles.Btn}
-                // onPress={() => navigation.navigate("Quiz")}
+                onPress={() => navigation.navigate("Welcome")}
               >
                 <LinearGradient
                   colors={["rgba(30,201,76,1)", "rgba(20,99,41,1)"]}
