@@ -70,14 +70,11 @@ const Result = ({ route ,navigation}) => {
               <Text style={styles.paragraphHeading}>
                 Don't worry Try Again!!
               </Text>
-              {/* <Image
+              
+              <Image
+                source={require("../assets/sad.gif")}
                 style={styles.logo}
-                source={{uri:"https://tenor.com/view/crying-emoji-gif-10800494"}}
-              /> */}
-              {/* <Image
-                source={require("../assets/626-syncing.gif")}
-                style={styles.logo}
-              /> */}
+              />
 
               <Text style={styles.score}>{route.params.paramKey}%</Text>
               <TouchableOpacity
