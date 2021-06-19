@@ -14,6 +14,7 @@ import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
 
+
 const Result = ({ route ,navigation}) => {
   const [state, setState] = useState("false");
 
@@ -69,10 +70,15 @@ const Result = ({ route ,navigation}) => {
               <Text style={styles.paragraphHeading}>
                 Don't worry Try Again!!
               </Text>
-              <Image
+              {/* <Image
                 style={styles.logo}
                 source={{uri:"https://tenor.com/view/crying-emoji-gif-10800494"}}
-              />
+              /> */}
+              {/* <Image
+                source={require("../assets/626-syncing.gif")}
+                style={styles.logo}
+              /> */}
+
               <Text style={styles.score}>{route.params.paramKey}%</Text>
               <TouchableOpacity
                 style={styles.Btn}

@@ -5,10 +5,11 @@ import {
   TouchableOpacity,
   View,
   Image,
-  Pressable,
+ 
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { RadioButton } from "react-native-paper";
+
 
 const Quiz = ({ navigation }: { navigation: any }) => {
   const [Question, setQuestion] = useState([]);
@@ -59,15 +60,24 @@ const Quiz = ({ navigation }: { navigation: any }) => {
   return (
     <View style={{ width: "100%", height: "100%" }}>
       {isLoading ? (
-        <View style={{ width: "100%", height: "100%" }}>
-          <LinearGradient
+        <View
+          style={{
+            width: "100%",
+            height: "100%",
+            backgroundColor: "#a333d6",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {/* <LinearGradient
             colors={["rgba(101, 48, 186,1)", "rgba(160, 57, 219,1)"]}
             start={{ x: 1, y: 0 }}
             end={{ x: 0, y: 0 }}
             style={styles.loading}
-          >
-            <Text style={styles.loadingText}>Loading...</Text>
-          </LinearGradient>
+          > */}
+          <Image source={require("../assets/kkk.gif")} style={styles.logo} />
+          <Text style={styles.loadingText}>Loading...</Text>
+          {/* </LinearGradient> */}
         </View>
       ) : (
         <View style={{ width: "100%", height: "100%" }}>
@@ -186,6 +196,11 @@ const styles = StyleSheet.create({
     padding: 12,
     width: "100%",
     height: "100%",
+  },
+  logo: {
+    height: 200,
+    width: 200,
+    marginBottom: 20,
   },
   loading: {
     width: "100%",
