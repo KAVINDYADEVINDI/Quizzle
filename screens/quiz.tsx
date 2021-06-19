@@ -33,7 +33,7 @@ const Quiz = ({ navigation }: { navigation: any }) => {
     setCurrentQuestion(nextQuestion);
 
     const newScore = score + 20;
-    checked == "third" ? setScore(newScore) :(null);
+    checked == "third" ? setScore(newScore) : null;
 
     setChecked("");
   };
@@ -42,9 +42,12 @@ const Quiz = ({ navigation }: { navigation: any }) => {
   const handleEndButton = () => {
     console.log("final" + score);
     const newScore = score + 20;
-    checked == "third" ? setScore(newScore) : (null);
-    navigation.navigate("Result",{paramKey:newScore});
-  
+    if (checked == "third") {
+      setScore(newScore);
+      navigation.navigate("Result", { paramKey: newScore });
+    } else {
+      navigation.navigate("Result", { paramKey: score });
+    }
   };
 
   useEffect(() => {
