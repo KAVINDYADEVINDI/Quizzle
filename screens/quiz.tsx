@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
- 
-} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { RadioButton } from "react-native-paper";
-
 
 const Quiz = ({ navigation }: { navigation: any }) => {
   const [Question, setQuestion] = useState([]);
@@ -56,7 +48,11 @@ const Quiz = ({ navigation }: { navigation: any }) => {
   }, []);
 
   console.log(score);
-console.log(Question[currentQuestion]);
+  console.log(Question[currentQuestion]);
+
+  const Que = Question[currentQuestion].question.replace(/&quot;/g,'"' ) &&
+   Question[currentQuestion].question.replace(/&#039;/g, '"');
+
   return (
     <View style={{ width: "100%", height: "100%" }}>
       {isLoading ? (
@@ -104,12 +100,7 @@ console.log(Question[currentQuestion]);
               <View style={styles.question}>
                 <Text style={styles.questionText}>
                   Q.
-                  {Question[currentQuestion].question.replace(
-                    /&quot;/g,
-                    '"',
-                    /&#039;/g,
-                    "`"
-                  )}
+                  {Que}
                 </Text>
               </View>
 
@@ -127,9 +118,9 @@ console.log(Question[currentQuestion]);
                       currentQuestion
                     ].incorrect_answers[0].replace(
                       /&quot;/g,
-                      '"',
+                      '"' ||
                       /&#039;/g,
-                      "`"
+                      "\\'"
                     )}
                     status={checked === "first" ? "checked" : "unchecked"}
                   />
@@ -143,9 +134,9 @@ console.log(Question[currentQuestion]);
                       currentQuestion
                     ].incorrect_answers[1].replace(
                       /&quot;/g,
-                      '"',
+                      '"' ||
                       /&#039;/g,
-                      "`"
+                      "\\'"
                     )}
                     status={checked === "second" ? "checked" : "unchecked"}
                   />
@@ -156,9 +147,9 @@ console.log(Question[currentQuestion]);
                     labelStyle={styles.optionText}
                     label={Question[currentQuestion].correct_answer.replace(
                       /&quot;/g,
-                      '"',
+                      '"' ||
                       /&#039;/g,
-                      "`"
+                      "\\'"
                     )}
                     status={checked === "third" ? "checked" : "unchecked"}
                   />
@@ -171,9 +162,9 @@ console.log(Question[currentQuestion]);
                       currentQuestion
                     ].incorrect_answers[2].replace(
                       /&quot;/g,
-                      '"',
+                      '"' ||
                       /&#039;/g,
-                      "`"
+                      "\\'"
                     )}
                     status={checked === "fourth" ? "checked" : "unchecked"}
                   />
