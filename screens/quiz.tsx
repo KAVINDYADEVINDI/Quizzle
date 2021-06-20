@@ -47,11 +47,8 @@ const Quiz = ({ navigation }: { navigation: any }) => {
     getQuiz();
   }, []);
 
-  console.log(score);
+  // console.log(score);
   console.log(Question[currentQuestion]);
-
-  const Que = Question[currentQuestion].question.replace(/&quot;/g,'"' ) &&
-   Question[currentQuestion].question.replace(/&#039;/g, '"');
 
   return (
     <View style={{ width: "100%", height: "100%" }}>
@@ -100,7 +97,12 @@ const Quiz = ({ navigation }: { navigation: any }) => {
               <View style={styles.question}>
                 <Text style={styles.questionText}>
                   Q.
-                  {Que}
+                  {Question[currentQuestion].question.replace(
+                    /&quot;/g,
+                    '"',
+                    /&#039;/g,
+                    '"'
+                  )}
                 </Text>
               </View>
 
@@ -114,14 +116,14 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                     position="leading"
                     value="first"
                     labelStyle={styles.optionText}
-                    label={Question[
-                      currentQuestion
-                    ].incorrect_answers[0].replace(
-                      /&quot;/g,
-                      '"' ||
-                      /&#039;/g,
-                      "\\'"
-                    )}
+                    label={
+                      Question[currentQuestion].incorrect_answers[0].replace(
+                        /&quot;/g,
+                        '"',
+                        /&#039;/g,
+                        "\\'"
+                      )
+                    }
                     status={checked === "first" ? "checked" : "unchecked"}
                   />
 
@@ -134,8 +136,7 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                       currentQuestion
                     ].incorrect_answers[1].replace(
                       /&quot;/g,
-                      '"' ||
-                      /&#039;/g,
+                      '"' , /&#039;/g,
                       "\\'"
                     )}
                     status={checked === "second" ? "checked" : "unchecked"}
@@ -147,8 +148,7 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                     labelStyle={styles.optionText}
                     label={Question[currentQuestion].correct_answer.replace(
                       /&quot;/g,
-                      '"' ||
-                      /&#039;/g,
+                      '"' , /&#039;/g,
                       "\\'"
                     )}
                     status={checked === "third" ? "checked" : "unchecked"}
@@ -162,8 +162,7 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                       currentQuestion
                     ].incorrect_answers[2].replace(
                       /&quot;/g,
-                      '"' ||
-                      /&#039;/g,
+                      '"' , /&#039;/g,
                       "\\'"
                     )}
                     status={checked === "fourth" ? "checked" : "unchecked"}
