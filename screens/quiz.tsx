@@ -136,7 +136,8 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                       currentQuestion
                     ].incorrect_answers[1].replace(
                       /&quot;/g,
-                      '"' , /&#039;/g,
+                      '"' , 
+                      /&#039;/g,
                       "\\'"
                     )}
                     status={checked === "second" ? "checked" : "unchecked"}
@@ -148,7 +149,8 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                     labelStyle={styles.optionText}
                     label={Question[currentQuestion].correct_answer.replace(
                       /&quot;/g,
-                      '"' , /&#039;/g,
+                      '"' , 
+                      /&#039;/g,
                       "\\'"
                     )}
                     status={checked === "third" ? "checked" : "unchecked"}
@@ -162,7 +164,8 @@ const Quiz = ({ navigation }: { navigation: any }) => {
                       currentQuestion
                     ].incorrect_answers[2].replace(
                       /&quot;/g,
-                      '"' , /&#039;/g,
+                      '"' , 
+                      /&#039;/g,
                       "\\'"
                     )}
                     status={checked === "fourth" ? "checked" : "unchecked"}
